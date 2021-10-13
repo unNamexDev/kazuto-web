@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miauri Bot :: Configuración</title>
+<body background="https://media.discordapp.net/attachments/808698284927090719/889919363304550411/fondo-oscuro-hexagonos-minimos_79603-1455.png" bgcolor="FFCECB">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Miauri Bot</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/comandos">Comandos</a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link active" href="/comandos">DashBoard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Soporte</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Miauri Un Bot En Español
+      </span>
+    </div>
+  </div>
+</nav>
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Hey</strong> Esta DashBoard Esta Sin Terminar!
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<div class="row">
+    {{#if guilds}}
+        {{#each guilds}}
+            <div class="col-md-3 pt-3">
+              <div class="col-md-11 mx-auto mg-top-5">     <h6 style="color:#FFFFFF" align="center">{{this.name}}</h6>
+<div class="card" style="width: 18rem;">
+                    {{#if this.icon}}
+                        <img class="card-img-top" src="https://cdn.discordapp.com/icons/{{this.id}}/{{this.icon}}.png">
+                    {{else}}
+                        <img class="card-img-top" src="https://media.discordapp.net/attachments/865716194212577301/889890329497600030/1se38Xbs99NBDDz300EO86T9b25PReKL5igAAAABJRU5ErkJggg.png">
+                    {{/if}}
+            
+            
+                        <h6 class="card-title" style="width: 18rem;"></h6>
+                        {{#if this.in}}
+                            <a href="/dash/{{this.id}}" class="btn btn-danger">Entrar <i class='bx bxs-right-arrow'></i></a>
+                        {{ else }}
+                            <a href="https://discord.com/api/oauth2/authorize?client_id=756741387789271081&permissions=0&scope=bot&disable_guild_select=true&guild_id={{this.id}}" class="btn btn-info">Invitar <i class='bx bxs-download'></i></a>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    {{ else }}
+        <h3>
+            Parece que no tienes servidores :(
+        </h3>
+    {{/if}}
+</div>
+
+</body>

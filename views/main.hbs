@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miuari Bot :: Configuración</title>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/login">Miauri Bot</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/comandos">Comandos</a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link active" href="/comandos">DashBoard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Soporte</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Miauri Un Bot En Español
+      </span>
+    </div>
+  </div>
+</nav>
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Hey</strong> Esta DashBoard Esta Sin Terminar!
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+{{#if errors}} 
+    {{#each errors}}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{text}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {{/each}}
+{{/if}}
+
+{{#if message}} <!-- Si hay un mensaje lo mostramos -->
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{{/if}}
+<div class="col-md-10 mx-auto mg-top-4">
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+        <div class="card-header">
+            <h3>Nuevo prefix</h3>
+        </div>
+        <div class="card-body">
+            <form action="/dash/{{id}}/prefix" method="post">
+                <div class="form-group">
+                    <input type="text" name="prefix" class="form-control" placeholder="{{prefix}}" autofocus>
+                </div>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>
